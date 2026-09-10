@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="英国10日旅行行程：伦敦、七姐妹、唐顿庄园、爱丁堡、剑桥">
+  <title>英国10日旅行手帐｜London × Edinburgh × Cambridge</title>
+  <style>
+    :root {
+      --bg: #f7f8f5;
+      --surface: #ffffff;
+      --text: #27312e;
+      --muted: #78817d;
+      --line: #e4e9e5;
+      --sage: #b9cbbd;
+      --sage-light: #e9f0ea;
+      --cream: #fbf8f0;
+      --gold: #d6ba80;
+      --blue-light: #e6eef0;
+      --shadow: 0 8px 30px rgba(45, 58, 51, 0.06);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "PingFang SC",
+        "Hiragino Sans GB",
+        "Microsoft YaHei",
+        sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* ===== Hero ===== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      margin: 24px 0;
+      padding: 58px 52px 48px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(214, 186, 128, .18), transparent 28%),
+        linear-gradient(135deg, #edf3ee 0%, #faf8f2 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      right: -90px;
+      bottom: -110px;
+      border-radius: 50%;
+      background: rgba(185, 203, 189, .25);
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 10px;
+      color: #718078;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+    }
+
+    .hero-subtitle {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .route {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 26px;
+    }
+
+    .route span {
+      color: #98a29d;
+    }
+
+    .route-pill {
+      padding: 7px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .82);
+      font-size: 13px;
+    }
+
+    /* ===== Summary ===== */
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 18px 0 34px;
+    }
+
+    .summary-card {
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .summary-card small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ===== Section ===== */
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-heading {
+      margin-bottom: 15px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: -.5px;
+    }
+
+    .section-heading p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ===== Day Card ===== */
+
+    .day-card {
+      overflow: hidden;
+      margin: 16px 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 22px 25px;
+      background: linear-gradient(90deg, var(--sage-light), #fff);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .day-title {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .day-subtitle {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .day-tag {
+      flex: 0 0 auto;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: #68736d;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .day-body {
+      padding: 24px 25px;
+    }
+
+    /* ===== Timeline ===== */
+
+    .timeline {
+      position: relative;
+      margin-left: 7px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 6px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 23px 31px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 6px;
+      left: 0;
+      width: 13px;
+      height: 13px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: var(--sage);
+      box-shadow: 0 0 0 1px var(--sage);
+    }
+
+    .timeline-time {
+      font-size: 13px;
+      font-weight: 750;
+      color: #46534d;
+    }
+
+    .timeline-desc {
+      margin-top: 2px;
+      font-size: 14px;
+    }
+
+    .timeline-desc strong {
+      font-weight: 700;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 7px;
+    }
+
+    .meta span {
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: #f4f6f4;
+      color: #69736e;
+      font-size: 11px;
+    }
+
+    .note {
+      margin-top: 20px;
+      padding: 11px 14px;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      background: var(--cream);
+      color: #676862;
+      font-size: 13px;
+    }
+
+    /* ===== Spot Cards ===== */
+
+    .spot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .spot-card {
+      min-height: 145px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .spot-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 10px;
+      border-radius: 9px;
+      background: var(--sage-light);
+      font-size: 15px;
+    }
+
+    .spot-card h3 {
+      margin: 0 0 5px;
+      font-size: 16px;
+    }
+
+    .spot-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ===== Budget Table ===== */
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      font-size: 13px;
+    }
+
+    th {
+      background: #f0f4f0;
+      color: #68736d;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .total-row td {
+      background: #fafbf9;
+      font-weight: 750;
+    }
+
+    /* ===== Checklist ===== */
+
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .check-item {
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      font-size: 13px;
+    }
+
+    .check-item::before {
+      content: "✓";
+      display: inline-block;
+      margin-right: 8px;
+      color: #748a7b;
+      font-weight: 800;
+    }
+
+    /* ===== Footer ===== */
+
+    footer {
+      padding: 38px 0 15px;
+      color: #8a928e;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* ===== Responsive ===== */
+
+    @media (max-width: 800px) {
+      .hero {
+        padding: 40px 26px;
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .spot-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .checklist {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .hero {
+        margin-top: 11px;
+        padding: 32px 21px;
+        border-radius: 23px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .summary-grid,
+      .spot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .day-header {
+        flex-direction: column;
+        padding: 19px;
+      }
+
+      .day-body {
+        padding: 20px 19px;
+      }
+
+      .day-title {
+        font-size: 18px;
+      }
+
+      .route {
+        gap: 6px;
+      }
+
+      .route-pill {
+        font-size: 12px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .hero,
+      .summary-card,
+      .day-card,
+      .spot-card,
+      .table-wrap,
+      .check-item {
+        box-shadow: none;
+      }
+
+      .day-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="eyebrow">UK TRAVEL JOURNAL · 2026</div>
+      <h1>伦敦 × 爱丁堡 × 剑桥</h1>
+      <p class="hero-subtitle">
+        9/26 — 10/5 · 10天9晚｜BIGBANG 演唱会、经典伦敦、七姐妹白崖、
+        唐顿庄园、爱丁堡 City Walk、剑桥康河与伦敦西区购物
+      </p>
+
+      <div class="route">
+        <span class="route-pill">London</span>
+        <span>→</span>
+        <span class="route-pill">Seven Sisters</span>
+        <span>→</span>
+        <span class="route-pill">Highclere</span>
+        <span>→</span>
+        <span class="route-pill">Edinburgh</span>
+        <span>→</span>
+        <span class="route-pill">Cambridge</span>
+        <span>→</span>
+        <span class="route-pill">London</span>
+      </div>
+    </header>
+
+    <!-- Summary -->
+    <section class="summary-grid" aria-label="旅行概览">
+      <div class="summary-card">
+        <strong>10天9晚</strong>
+        <small>旅行周期</small>
+      </div>
+      <div class="summary-card">
+        <strong>3城 + 3日游</strong>
+        <small>London / Edinburgh / Cambridge</small>
+      </div>
+      <div class="summary-card">
+        <strong>2次跨城火车</strong>
+        <small>London ⇄ Edinburgh</small>
+      </div>
+      <div class="summary-card">
+        <strong>英伦复合路线</strong>
+        <small>城市 · 自然 · 影视 · 学院</small>
+      </div>
+    </section>
+
+    <!-- Daily itinerary -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>每日行程</h2>
+        <p>按照实际行程日期整理，保留原有时间节点与预算参考。</p>
+      </div>
+
+      <!-- 09/26 -->
+      <article class="day-card">
+        <header class="day-header">
+          <div>
+            <h3 class="day-title">09/26 · 周六｜伦敦抵达 + BIGBANG</h3>
+            <p class="day-subtitle">London · Tower Hill · Tottenham Hotspur Stadium</p>
+          </div>
+          <span class="day-tag">重点：演唱会</span>
+        </header>
+
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">09:30</div>
+              <div class="timeline-desc">
+                抵达伦敦机场（希思罗 / 盖特威克），完成入境、取行李。
+              </div>
+              <div class="meta">
+                <span>机场 → 市中心</span>
+                <span>约35–50min</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">上午–下午</div>
+              <div class="timeline-desc">
+                前往 <strong>Leonardo Royal Tower of London</strong> 办理入住/寄存行李。
+                附近 Tower Hill、St Katharine Docks 轻逛，补觉调整时差。
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">16:30</div>
+              <div class="timeline-desc">
+                <strong>BIGBANG 演唱会</strong> · Tottenham Hotspur Stadium。
+              </div>
+              <div class="meta">
+                <span>酒店 → Stadium</span>
+                <span>约35–45min</span>
+                <span>往返交通 £6–18</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">23:00前</div>
+              <div class="timeline-desc">
+                散场后可从 Northumberland Park 或 Seven Sisters 返回酒店。
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            当天核心任务只有一个：保证演唱会顺利抵达。不要再安排正式景点。
+            演唱会票原行程参考 £80–200+。
+          </div>
+        </div>
+      </article>
+
+      <!-- 09/27 -->
+      <article class="day-card">
+        <header class="day-header">
+          <div>
+            <h3 class="day-title">09/27 · 周日｜伦敦塔 · 塔桥 · 碎片大厦</h3>
+            <p class="day-subtitle">Tower of London · Tower Bridge · The Shard · Borough Market</p>
+          </div>
+          <span class="day-tag">重点：经典伦敦</span>
+        </header>
+
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">上午</div>
+              <div class="timeline-desc">
+                London Bridge / 酒店 → <strong>伦敦塔 Tower of London</strong>。
+              </div>
+              <div class="meta">
+                <span>门票约 £29</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">中午</div>
+              <div class="timeline-desc">
+                <strong>塔桥 Tower Bridge</strong> → 沿泰晤士河向西步行约20min →
+                <strong>The Shard</strong>。
+              </div>
+              <div class="meta">
+                <span>塔桥上桥免费</span>
+                <span>玻璃地板约 £12</span>
+                <span>Shard观景台约 £32 可选</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">下午</div>
+              <div class="timeline-desc">
+                Borough Market 午餐 → 千禧桥 → St Paul’s Cathedral → Covent Garden。
+              </div>
+              <div class="meta">
+                <span>Zone 1–2 日交通参考 £8.90</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 09/28 -->
+      <article class="day-card">
+        <header class="day-header">
+          <div>
+            <h3 class="day-title">09/28 · 周一｜七姐妹白崖一日游</h3>
+            <p class="day-subtitle">London Victoria · Eastbourne · Birling Gap · Cuckmere Haven</p>
+          </div>
+          <span class="day-tag">重点：自然风景</span>
+        </header>
+
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">上午</div>
+              <div class="timeline-desc">
+                London Victoria → Eastbourne，Southern 火车约1h25m。
+              </div>
+              <div class="meta">
+                <span>Advance 单程 £12–20</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">抵达后</div>
+              <div class="timeline-desc">
+                Eastbourne → Birling Gap，乘13X Coaster约30–50min。
+              </div>
+              <div class="meta">
+                <span>巴士约 £3</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">下午</div>
+              <div class="timeline-desc">
+                <strong>Seven Sisters 白崖</strong>沿崖顶向西徒步至 Cuckmere Haven 经典机位，
+                再原路返回。
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            白崖本身免费。建议携带防风外套、水、充电宝，并提前截图返程末班交通信息。
+            当日交通参考 £30–46/人。
+          </div>
+        </div>
+      </article>
+
+      <!-- 09/29 -->
+      <article class="day-card">
+        <header class="day-header">
+          <div>
+            <h3 class="day-title">09/29 · 周二｜伦敦轻逛 + 整理</h3>
+            <p class="day-subtitle">British Museum / Coal Drops Yard / Camden Market</p>
+          </div>
+          <span class="day-tag">留白日</span>
+        </header>
+
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">上午</div>
+              <div class="timeline-desc">
+                大英博物馆（免费）或 Coal Drops Yard / Camden Market 二选一。
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">下午</div>
+              <div class="timeline-desc">
+                回酒店整理行李；确认次日 Highclere Castle 预约与 10/1 早火车票。
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            这一日刻意保留弹性，给前几天高强度行程留出休息空间。
+            交通参考 £8.90，餐饮约 £35。
+          </div>
+        </div>
+      </article>
+
+      <!-- 09/30 -->
+      <article class="day-card">
+        <header class="day-header">
+          <div>
+            <h3 class="day-title">09/30 · 周三｜唐顿庄园 Highclere Castle</h3>
+            <p class="day-subtitle">Paddington · Newbury · Highclere Castle</p>
+          </div>
+          <span class="day-tag">重点：影视取景地</span>
+        </header>
+
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">上午</div>
+              <div class="timeline-desc">
+                London Paddington → Newbury，GWR约1h05m。
+              </div>
+              <div class="meta">
+                <span>火车参考 £20–60 往返</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">抵达后</div>
+              <div class="timeline-desc">
+                Newbury Station → Highclere Castle，出租车约15min；
+                建议提前预约返程出租车。
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">白天</div>
+              <div class="timeline-desc">
+                <strong>Highclere Castle</strong>：唐顿庄园取景地，参观城堡、花园及主题导览。
+              </div>
+              <div class="meta">
+                <span>需提前预约</span>
+                <span>票价以官方预约页面为准</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">傍晚</div>
+              <div class="timeline-desc">
+                Newbury → Paddington，返回伦敦。
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            原行程预算约 £130–150/人，其中包含火车、出租车及约 £70–90 的导览票参考；
+            实际票种、开放时间和价格以 Highclere Castle 官方预约页面为准。
+          </div>
+        </div>
+      </article>
+
+      <!-- 10/01 -->
+      <article class="day-card">
+        <header class="day-header">
+          <div>
+            <h3 class="day-title">10/01 · 周四｜伦敦 → 爱丁堡</h3>
+            <p class="day-subtitle">King’s Cross · Edinburgh Waverley · Royal Mile · Carlton Hill</p>
+          </div>
+          <span class="day-tag">重点：日间火车</span>
+        </header>
+
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">07:30</div>
+              <div class="timeline-desc">
+                King’s Cross → Edinburgh Waverley，LNER约4h08m。
+              </div>
+              <div class="meta">
+                <span>Advance参考 £41.40 起</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">11:38</div>
+              <div class="timeline-desc">
+                抵达爱丁堡 Waverley，步行约5min至 Royal Mile 一带 Point A，
+                办理入住/寄存。
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">下午</div>
+              <div class="timeline-desc">
+                <strong>Edinburgh Castle</strong> → Royal Mile → 卡尔顿山看日落。
+              </div>
+              <div class="meta">
+                <span>城堡票原预算 £19–21</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10/02 -->
+      <article class="day-card">
+        <header class="day-header">
+          <div>
+            <h3 class="day-title">10/02 · 周五｜爱丁堡 City Walk</h3>
+            <p class="day-subtitle">Arthur’s Seat · National Museum of Scotland · George Street</p>
+          </div>
+          <span class="day-tag">重点：城市漫游</span>
+        </header>
+
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">上午</div>
+              <div class="timeline-desc">
+                <strong>亚瑟王座 Arthur’s Seat</strong>徒步，俯瞰爱丁堡城市景观。
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">下午</div>
+              <div class="timeline-desc">
+                苏格兰国家博物馆 → 新城区 George Street。
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">傍晚</div>
+              <div class="timeline-desc">
+                Royal Mile 晚餐 → 回 Point A。
+              </div>
+              <div class="meta">
+                <span>市内以步行为主</span>
+                <span>餐饮参考 £35</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10/03 -->
+      <article class="day-card">
+        <header class="day-header">
+          <div>
+            <h3 class="day-title">10/03 · 周六｜爱丁堡 → 伦敦 + 换酒店</h3>
+            <p class="day-subtitle">Edinburgh Waverley · King’s Cross · Hyde Park</p>
+          </div>
+          <span class="day-tag">重点：返伦敦</span>
+        </header>
+
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">上午</div>
+              <div class="timeline-desc">
+                卡尔顿山或爱丁堡前几日遗漏景点补漏。
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">12:30</div>
+              <div class="timeline-desc">
+                回 Point A 取行李并退房。
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">14:30左右</div>
+              <div class="timeline-desc">
+                Waverley → King’s Cross，LNER约4h15m。
+              </div>
+              <div class="meta">
+                <span>Advance参考 £41.40 起</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">晚间</div>
+              <div class="timeline-desc">
+                前往海德公园希尔顿逸林入住；
+                Kensington Palace Gardens 一带散步。
+              </div>
+              <div class="meta">
+                <span>市内交通参考 £5.6</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10/04 -->
+      <article class="day-card">
+        <header class="day-header">
+          <div>
+            <h3 class="day-title">10/04 · 周日｜剑桥一日游</h3>
+            <p class="day-subtitle">King’s Cross · Cambridge · King’s College · River Cam</p>
+          </div>
+          <span class="day-tag">重点：学院小镇</span>
+        </header>
+
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">上午</div>
+              <div class="timeline-desc">
+                Lancaster Gate → King’s Cross，再前往 Cambridge，
+                火车约55min。
+              </div>
+              <div class="meta">
+                <span>往返参考 £16–34</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">白天</div>
+              <div class="timeline-desc">
+                <strong>King’s College Chapel</strong> → 康河撑篙 Punt →
+                Cambridge City Walk。
+              </div>
+              <div class="meta">
+                <span>教堂约 £15–18</span>
+                <span>共享撑篙约 £15–20</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">傍晚</div>
+              <div class="timeline-desc">返回伦敦。</div>
+            </div>
+          </div>
+
+          <div class="note">
+            当日交通 + 景点活动原行程参考约 £46–72/人。
+          </div>
+        </div>
+      </article>
+
+      <!-- 10/05 -->
+      <article class="day-card">
+        <header class="day-header">
+          <div>
+            <h3 class="day-title">10/05 · 周一｜西区逛街 + 飞香港</h3>
+            <p class="day-subtitle">Oxford Street · Regent Street · Covent Garden · Airport</p>
+          </div>
+          <span class="day-tag">重点：购物返程</span>
+        </header>
+
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">09:00</div>
+              <div class="timeline-desc">
+                寄存大件 → Tottenham Court Road → Oxford Street。
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">上午–下午</div>
+              <div class="timeline-desc">
+                <strong>Selfridges → Oxford Circus → Bond Street → Regent Street</strong>
+                （Liberty / Hamleys）→ Covent Garden Market
+                （Neal's Yard / Apple Market）。
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">14:30</div>
+              <div class="timeline-desc">
+                回酒店取行李，前往机场。
+              </div>
+              <div class="meta">
+                <span>希思罗：Piccadilly约£5.6 / 约50min</span>
+                <span>盖特威克：Gatwick Express提前票参考£19.90</span>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-time">20:15</div>
+              <div class="timeline-desc">
+                <strong>飞香港</strong>，结束英国行程。
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Spots -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>必看景点</h2>
+        <p>把这趟英国路线中最值得留时间的地点单独整理出来。</p>
+      </div>
+
+      <div class="spot-grid">
+        <article class="spot-card">
+          <div class="spot-icon">🌉</div>
+          <h3>Tower Bridge</h3>
+          <p>伦敦最具辨识度的地标之一，适合与泰晤士河步行路线一起安排。</p>
+        </article>
+
+        <article class="spot-card">
+          <div class="spot-icon">🌊</div>
+          <h3>Seven Sisters</h3>
+          <p>白色海岸线与英伦海风，是整趟路线中自然风景感最强的一站。</p>
+        </article>
+
+        <article class="spot-card">
+          <div class="spot-icon">🏰</div>
+          <h3>Highclere Castle</h3>
+          <p>《Downton Abbey》取景地，城堡、花园与影视文化体验是核心看点。</p>
+        </article>
+
+        <article class="spot-card">
+          <div class="spot-icon">🏯</div>
+          <h3>Edinburgh Castle</h3>
+          <p>爱丁堡经典历史城堡，适合与 Royal Mile 串联游览。</p>
+        </article>
+
+        <article class="spot-card">
+          <div class="spot-icon">⛰</div>
+          <h3>Arthur’s Seat</h3>
+          <p>爱丁堡经典徒步点，适合从城市视角切换到山顶全景。</p>
+        </article>
+
+        <article class="spot-card">
+          <div class="spot-icon">🛶</div>
+          <h3>Cambridge</h3>
+          <p>国王学院、康河撑篙与学院建筑构成经典英伦校园体验。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Budget -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>每日预算参考</h2>
+        <p>以下沿用原行程中的交通、门票及餐饮预算；实际价格以预订时为准。</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>交通</th>
+              <th>门票 / 活动</th>
+              <th>餐饮</th>
+              <th>原行程参考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>09/26</td>
+              <td>£6–18</td>
+              <td>BIGBANG £80–200+</td>
+              <td>—</td>
+              <td>£86–218+</td>
+            </tr>
+            <tr>
+              <td>09/27</td>
+              <td>£8.90</td>
+              <td>约£29–41</td>
+              <td>—</td>
+              <td>约£38–50</td>
+            </tr>
+            <tr>
+              <td>09/28</td>
+              <td>£30–46</td>
+              <td>免费</td>
+              <td>—</td>
+              <td>£30–46</td>
+            </tr>
+            <tr>
+              <td>09/29</td>
+              <td>£8.90</td>
+              <td>大英博物馆免费</td>
+              <td>约£35</td>
+              <td>约£44</td>
+            </tr>
+            <tr>
+              <td>09/30</td>
+              <td>约£60</td>
+              <td>Highclere：以官网票价为准</td>
+              <td>—</td>
+              <td>原计划约£130–150</td>
+            </tr>
+            <tr>
+              <td>10/01</td>
+              <td>£41.40起</td>
+              <td>城堡约£19–21</td>
+              <td>—</td>
+              <td>约£60–63</td>
+            </tr>
+            <tr>
+              <td>10/02</td>
+              <td>步行为主</td>
+              <td>—</td>
+              <td>约£35</td>
+              <td>约£35</td>
+            </tr>
+            <tr>
+              <td>10/03</td>
+              <td>£41.40起 + £5.6</td>
+              <td>—</td>
+              <td>—</td>
+              <td>约£47</td>
+            </tr>
+            <tr>
+              <td>10/04</td>
+              <td>£16–34</td>
+              <td>£30–38</td>
+              <td>—</td>
+              <td>约£46–72</td>
+            </tr>
+            <tr>
+              <td>10/05</td>
+              <td>约£5.6–19.90+</td>
+              <td>—</td>
+              <td>—</td>
+              <td>视机场而定</td>
+            </tr>
+            <tr class="total-row">
+              <td colspan="4">已列出的原行程参考预算</td>
+              <td>不含酒店 / 国际机票 / 购物</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Checklist -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>出发前重点确认</h2>
+        <p>建议在出发前逐项核对。</p>
+      </div>
+
+      <div class="checklist">
+        <div class="check-item">BIGBANG 演唱会票、入场规则与场馆交通</div>
+        <div class="check-item">Highclere Castle 9/30 实际场次、票种与预约</div>
+        <div class="check-item">London ⇄ Edinburgh 两段 LNER Advance 火车票</div>
+        <div class="check-item">Seven Sisters 当日天气、风力与返程班次</div>
+        <div class="check-item">10/05 根据实际机场倒推离店时间</div>
+        <div class="check-item">各酒店行李寄存、入住及退房时间</div>
+      </div>
+    </section>
+
+    <footer>
+      英国10日旅行手帐 · 9/26–10/5 · 行程内容按实际提供的信息整理
+      <br>
+      票价与交通时刻为原行程参考值，最终以官方信息及实际预订结果为准。
+    </footer>
+
+  </main>
+</body>
+</html>
