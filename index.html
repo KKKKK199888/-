@@ -213,106 +213,74 @@
       border-radius: 16px;
     }
 
-    .map-legend {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .legend-item {
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #f9faf8;
-      font-size: 13px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .legend-item:hover {
-      background: var(--sage-light);
-      border-color: var(--sage);
-    }
-
-    .legend-item strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--text);
-    }
-
-    .legend-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
     /* ===== Spot Cards ===== */
 
     .spot-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 14px;
+      margin-top: 16px;
     }
 
     .spot-card {
       min-height: 160px;
-      padding: 20px;
+      padding: 16px;
       border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
+      border-radius: 14px;
+      background: #fafbf9;
+      box-shadow: 0 2px 8px rgba(45, 58, 51, 0.04);
       transition: all 0.3s ease;
     }
 
     .spot-card:hover {
       border-color: var(--sage);
-      box-shadow: 0 12px 40px rgba(185, 203, 189, 0.2);
+      background: var(--sage-light);
+      box-shadow: 0 8px 20px rgba(185, 203, 189, 0.15);
     }
 
     .spot-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 30px;
-      height: 30px;
-      margin-bottom: 10px;
-      border-radius: 9px;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 8px;
+      border-radius: 8px;
       background: var(--sage-light);
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .spot-card h3 {
-      margin: 0 0 5px;
-      font-size: 16px;
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 600;
     }
 
     .spot-card p {
-      margin: 0;
+      margin: 0 0 10px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     .map-link {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid var(--line);
+      margin-top: 8px;
     }
 
     .map-link a {
       display: inline-block;
-      padding: 6px 10px;
+      padding: 6px 11px;
       border-radius: 8px;
-      background: var(--sage-light);
-      color: #4a6d54;
-      font-size: 12px;
+      background: var(--sage);
+      color: #fff;
+      font-size: 11px;
       font-weight: 600;
       transition: all 0.2s ease;
     }
 
     .map-link a:hover {
-      background: var(--sage);
-      color: #fff;
+      background: #98b5a0;
+      transform: translateY(-1px);
     }
 
     /* ===== Day Card ===== */
@@ -361,6 +329,21 @@
 
     .day-body {
       padding: 24px 25px;
+    }
+
+    .day-spots {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .day-spots-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #68736d;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     /* ===== Timeline ===== */
@@ -462,7 +445,7 @@
       }
 
       .spot-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
     }
 
@@ -481,9 +464,7 @@
         font-size: 30px;
       }
 
-      .summary-grid,
-      .spot-grid,
-      .map-legend {
+      .summary-grid {
         grid-template-columns: 1fr;
       }
 
@@ -511,6 +492,10 @@
       .map-section {
         padding: 20px;
       }
+
+      .spot-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media print {
@@ -521,7 +506,6 @@
       .hero,
       .summary-card,
       .day-card,
-      .spot-card,
       .map-section {
         box-shadow: none;
       }
@@ -583,176 +567,13 @@
     <!-- Map Section -->
     <section class="map-section">
       <div class="section-heading">
-        <h2>🗺️ 旅行地图</h2>
-        <p>点击下方地点卡片查看具体位置与导航</p>
+        <h2>🗺️ 旅行地图概览</h2>
+        <p>完整的英国旅行路线，各景点详情见下方每日行程</p>
       </div>
 
       <!-- OpenStreetMap Embed -->
       <div class="map-container">
         <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-3.2190,51.3,1.5,55.9&layer=mapnik&marker=51.5074,-0.1278" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-
-      <!-- Spots Legend -->
-      <div class="map-legend">
-        <div class="legend-item">
-          <strong>🎭 Tower of London</strong>
-          <p>伦敦塔，英国皇冠珠宝收藏地</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Tower+of+London" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>🌉 Tower Bridge</strong>
-          <p>伦敦塔桥，经典拍照地</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Tower+Bridge+London" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>🏢 The Shard</strong>
-          <p>碎片大厦，伦敦最高观景台</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=The+Shard+London" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>⛪ St Paul's Cathedral</strong>
-          <p>圣保罗大教堂，英国建筑杰作</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=St+Paul's+Cathedral+London" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>🏛️ British Museum</strong>
-          <p>大英博物馆，免费入场</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=British+Museum+London" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>🌊 Seven Sisters</strong>
-          <p>七姐妹白崖，英国标志性景观</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Seven+Sisters+Cliffs+Eastbourne" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>🏰 Highclere Castle</strong>
-          <p>唐顿庄园取景地</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Highclere+Castle+Newbury" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>🏰 Edinburgh Castle</strong>
-          <p>爱丁堡城堡，苏格兰地标</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Edinburgh+Castle" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>⛰️ Arthur's Seat</strong>
-          <p>亚瑟王座，爱丁堡最佳观景点</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Arthur's+Seat+Edinburgh" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>🎓 King's College Chapel</strong>
-          <p>国王学院礼拜堂，剑桥标志</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=King's+College+Chapel+Cambridge" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>🚣 River Cam</strong>
-          <p>康河撑篙，剑桥必体验</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=River+Cam+Cambridge" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="legend-item">
-          <strong>🎤 Tottenham Hotspur Stadium</strong>
-          <p>BIGBANG 演唱会地点</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Tottenham+Hotspur+Stadium" target="_blank">📍 导航</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Attractions Section -->
-    <section class="section">
-      <div class="section-heading">
-        <h2>✨ 主要景点一览</h2>
-        <p>点击各卡片可在 Google 地图中打开导航</p>
-      </div>
-
-      <div class="spot-grid">
-        <div class="spot-card">
-          <div class="spot-icon">🎭</div>
-          <h3>Tower of London</h3>
-          <p>伦敦塔，英国皇冠珠宝和历史文物收藏地。门票约 £29。</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Tower+of+London" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="spot-card">
-          <div class="spot-icon">🌊</div>
-          <h3>Seven Sisters Cliffs</h3>
-          <p>七姐妹白崖，英国最壮观的海岸线景观，免费参观。</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Seven+Sisters+Cliffs" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="spot-card">
-          <div class="spot-icon">🏰</div>
-          <h3>Highclere Castle</h3>
-          <p>唐顿庄园取景地，参观城堡、花园及主题导览。</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Highclere+Castle" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="spot-card">
-          <div class="spot-icon">🏰</div>
-          <h3>Edinburgh Castle</h3>
-          <p>爱丁堡城堡，苏格兰标志性建筑，俯瞰整个城市。</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Edinburgh+Castle" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="spot-card">
-          <div class="spot-icon">⛰️</div>
-          <h3>Arthur's Seat</h3>
-          <p>亚瑟王座，爱丁堡最高点，登顶俯瞰城市全景。</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=Arthur's+Seat+Edinburgh" target="_blank">📍 导航</a>
-          </div>
-        </div>
-
-        <div class="spot-card">
-          <div class="spot-icon">🎓</div>
-          <h3>King's College Chapel</h3>
-          <p>国王学院礼拜堂，剑桥标志性建筑，哥特式建筑杰作。</p>
-          <div class="map-link">
-            <a href="https://maps.google.com/?q=King's+College+Chapel+Cambridge" target="_blank">📍 导航</a>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -760,7 +581,7 @@
     <section class="section">
       <div class="section-heading">
         <h2>📅 每日行程</h2>
-        <p>按照实际行程日期整理，保留原有时间节点与预算参考。</p>
+        <p>详细的行程规划，包含时间表、景点导航与预算参考</p>
       </div>
 
       <!-- 09/26 -->
@@ -822,6 +643,20 @@
             当天核心任务只有一个：保证演唱会顺利抵达。不要再安排正式景点。
             演唱会票原行程参考 £80–200+。
           </div>
+
+          <div class="day-spots">
+            <div class="day-spots-title">📍 景点导航</div>
+            <div class="spot-grid">
+              <div class="spot-card">
+                <div class="spot-icon">🎤</div>
+                <h3>Tottenham Hotspur Stadium</h3>
+                <p>BIGBANG 演唱会地点，伦敦北部托特纳姆地区</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=Tottenham+Hotspur+Stadium" target="_blank">📍 导航</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -873,6 +708,47 @@
               </div>
             </div>
           </div>
+
+          <div class="day-spots">
+            <div class="day-spots-title">📍 景点导航</div>
+            <div class="spot-grid">
+              <div class="spot-card">
+                <div class="spot-icon">🎭</div>
+                <h3>Tower of London</h3>
+                <p>伦敦塔，英国皇冠珠宝收藏地，门票约 £29</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=Tower+of+London" target="_blank">📍 导航</a>
+                </div>
+              </div>
+
+              <div class="spot-card">
+                <div class="spot-icon">🌉</div>
+                <h3>Tower Bridge</h3>
+                <p>伦敦塔桥，经典拍照地，上桥免费</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=Tower+Bridge+London" target="_blank">📍 导航</a>
+                </div>
+              </div>
+
+              <div class="spot-card">
+                <div class="spot-icon">🏢</div>
+                <h3>The Shard</h3>
+                <p>碎片大厦，伦敦最高观景台，票价约 £32</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=The+Shard+London" target="_blank">📍 导航</a>
+                </div>
+              </div>
+
+              <div class="spot-card">
+                <div class="spot-icon">⛪</div>
+                <h3>St Paul's Cathedral</h3>
+                <p>圣保罗大教堂，英国建筑杰作</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=St+Paul's+Cathedral+London" target="_blank">📍 导航</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -921,8 +797,22 @@
           </div>
 
           <div class="note">
-            白崖本身免费。建议携带防��外套、水、充电宝，并提前截图返程末班交通信息。
+            白崖本身免费。建议携带防风外套、水、充电宝，并提前截图返程末班交通信息。
             当日交通参考 £30–46/人。
+          </div>
+
+          <div class="day-spots">
+            <div class="day-spots-title">📍 景点导航</div>
+            <div class="spot-grid">
+              <div class="spot-card">
+                <div class="spot-icon">🌊</div>
+                <h3>Seven Sisters Cliffs</h3>
+                <p>七姐妹白崖，英国最壮观的海岸线景观，免费参观</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=Seven+Sisters+Cliffs+Eastbourne" target="_blank">📍 导航</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </article>
@@ -959,6 +849,20 @@
           <div class="note">
             这一日刻意保留弹性，给前几天高强度行程留出休息空间。
             交通参考 £8.90，餐饮约 £35。
+          </div>
+
+          <div class="day-spots">
+            <div class="day-spots-title">📍 景点导航</div>
+            <div class="spot-grid">
+              <div class="spot-card">
+                <div class="spot-icon">🏛️</div>
+                <h3>British Museum</h3>
+                <p>大英博物馆，免费入场，世界级收藏</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=British+Museum+London" target="_blank">📍 导航</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </article>
@@ -1020,6 +924,20 @@
             原行程预算约 £130–150/人，其中包含火车、出租车及约 £70–90 的导览票参考；
             实际票种、开放时间和价格以 Highclere Castle 官方预约页面为准。
           </div>
+
+          <div class="day-spots">
+            <div class="day-spots-title">📍 景点导航</div>
+            <div class="spot-grid">
+              <div class="spot-card">
+                <div class="spot-icon">🏰</div>
+                <h3>Highclere Castle</h3>
+                <p>唐顿庄园取景地，参观城堡、花园及主题导览</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=Highclere+Castle+Newbury" target="_blank">📍 导航</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -1066,6 +984,20 @@
               </div>
             </div>
           </div>
+
+          <div class="day-spots">
+            <div class="day-spots-title">📍 景点导航</div>
+            <div class="spot-grid">
+              <div class="spot-card">
+                <div class="spot-icon">🏰</div>
+                <h3>Edinburgh Castle</h3>
+                <p>爱丁堡城堡，苏格兰地标，俯瞰整个城市</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=Edinburgh+Castle" target="_blank">📍 导航</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -1106,6 +1038,20 @@
               <div class="meta">
                 <span>市内以步行为主</span>
                 <span>餐饮参考 £35</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="day-spots">
+            <div class="day-spots-title">📍 景点导航</div>
+            <div class="spot-grid">
+              <div class="spot-card">
+                <div class="spot-icon">⛰️</div>
+                <h3>Arthur's Seat</h3>
+                <p>亚瑟王座，爱丁堡最高点，登顶俯瞰城市全景</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=Arthur's+Seat+Edinburgh" target="_blank">📍 导航</a>
+                </div>
               </div>
             </div>
           </div>
@@ -1159,7 +1105,7 @@
                 Kensington Palace Gardens 一带散步。
               </div>
               <div class="meta">
-                <span>市内交���参考 £5.6</span>
+                <span>市内交通参考 £5.6</span>
               </div>
             </div>
           </div>
@@ -1208,6 +1154,29 @@
               <div class="timeline-time">傍晚</div>
               <div class="timeline-desc">
                 返回伦敦，回 Hilton Doubletree Hyde Park。
+              </div>
+            </div>
+          </div>
+
+          <div class="day-spots">
+            <div class="day-spots-title">📍 景点导航</div>
+            <div class="spot-grid">
+              <div class="spot-card">
+                <div class="spot-icon">🎓</div>
+                <h3>King's College Chapel</h3>
+                <p>国王学院礼拜堂，剑桥标志，哥特式建筑杰作</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=King's+College+Chapel+Cambridge" target="_blank">📍 导航</a>
+                </div>
+              </div>
+
+              <div class="spot-card">
+                <div class="spot-icon">🚣</div>
+                <h3>River Cam</h3>
+                <p>康河撑篙，剑桥必体验，共享撑篙约 £15–20</p>
+                <div class="map-link">
+                  <a href="https://maps.google.com/?q=River+Cam+Cambridge" target="_blank">📍 导航</a>
+                </div>
               </div>
             </div>
           </div>
